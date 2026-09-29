@@ -6,10 +6,10 @@ function retry {
   shift # shift by 1 (default): remove first argument
 
   local count=0
-  # $@ gets all positional arguments. Using double quotes treats each separately
-  # until stops at the last positional argument (the command)
+  # `$@ ` gets all positional arguments. Using double quotes treats each separately
+  # `until` stops at the last positional argument (the command)
   until "$@"; do
-  # This is the exit status of the last executed command (passed as argument)
+  # `$?` is the exit status of the last executed command (passed as argument)
     exit=$?
     wait=$((2 ** $count))
     count=$(($count + 1))
